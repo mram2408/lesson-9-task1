@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <a href="/logout">Вийти</a>
+    <a href="/products/addProduct">Додати новий товар</a>
+    <div class="products">
+      <div class="product__row">
+        <div class="product__name"><strong>Назва товару</strong></div>
+        <div class="product__price"><strong>Ціна</strong></div>
+        <div class="product__quantity"><strong>Кількість</strong></div>
+      </div>
+      <% products.forEach(product => { %>
+      <div class="product__row">
+        <div class="product__name"><%= product.name %></div>
+        <div class="product__price">₴ <%= product.price %></div>
+        <div class="product__quantity"><%= product.quantity %></div>
+      </div>
+      <% }); %>
+    </div>
+  </body>
+
+  <style>
+    .products {
+      max-width: 700px;
+
+      border: 1px solid black;
+    }
+    .product__row {
+      padding: 5px;
+
+      display: grid;
+      grid-template-columns: 1fr 150px 70px;
+      align-items: center;
+    }
+    .product__row:not(:last-child) {
+      border-bottom: 1px solid black;
+    }
+  </style>
+</html>
